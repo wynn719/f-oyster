@@ -1,0 +1,19 @@
+<!--pages/index/index.wxml-->
+<view class="page" wx:if="{{isLoaded}}">
+  <view class="page-wrapper">
+    <view class="emo-title">Today's Emo{{!todayEmo._id ? '?' : ':'}}</view>
+    <view class="grid-wrapper" wx:if="{{!todayEmo._id}}">
+      <view 
+        class="grid-item" 
+        wx:for="{{emoList}}" 
+        wx:key="_id" 
+        bindtap="onClickEmo" 
+        data-id="{{item._id}}">
+        <image class="emo-img" src="{{item.pic}}"></image>
+      </view>
+    </view>
+    <view class="today-emo" wx:else>
+      <image class="emo-img" src="{{todayEmo.pic}}"></image>
+    </view>
+  </view>
+</view>
